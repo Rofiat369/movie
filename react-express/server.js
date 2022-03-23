@@ -6,6 +6,8 @@ const axios =require('axios');
 const app = express();
 const port = 5000;
 
+app.use(express.json());
+
 app.use(cors({credentials: true}));
 
 const handleError = function (res, error){
@@ -20,7 +22,11 @@ app.get('/', (req, res) => {
     axios.get('https://api.themoviedb.org/3/movie/popular?api_key=d0f5f2e135336200362af8a1a73acb17')
     .then(function ({data}) {
         // handle success
-        res.send(data);
+        const results = data.results;
+        const newArr = results.map(element => {
+            return  {...element, like: 0}
+          });
+        res.send(newArr);
     })
     .catch(function (error){
         handleError(res, error)
