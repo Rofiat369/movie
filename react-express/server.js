@@ -21,12 +21,11 @@ const handleError = function (res, error){
 app.get('/', (req, res) => {
     axios.get('https://api.themoviedb.org/3/movie/popular?api_key=d0f5f2e135336200362af8a1a73acb17')
     .then(function ({data}) {
-        // handle success
-        const results = data.results;
-        const newArr = results.map(element => {
-            return  {...element, like: 0}
-          });
-        res.send(newArr);
+        const results = data;
+        // const newArr = results.map(element => {
+        //     return  {...element, like: 0}
+        //   });
+        res.send(data);
     })
     .catch(function (error){
         handleError(res, error)
