@@ -22,9 +22,6 @@ app.get('/', (req, res) => {
     axios.get('https://api.themoviedb.org/3/movie/popular?api_key=d0f5f2e135336200362af8a1a73acb17')
     .then(function ({data}) {
         const results = data;
-        // const newArr = results.map(element => {
-        //     return  {...element, like: 0}
-        //   });
         res.send(data);
     })
     .catch(function (error){
