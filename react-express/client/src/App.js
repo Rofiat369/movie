@@ -1,4 +1,3 @@
-
 // Imports
 import {
   BrowserRouter as Router,
