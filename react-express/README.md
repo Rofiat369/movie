@@ -6,7 +6,7 @@
 
 ## Welcome! 👋
 
-Thanks for checking out this coding challenge.
+Thanks for checking out this coding challenge. This is a fully responsive poster App that allows you to like and save liked movie poster to a /liked route. The like button shows up on image hover. Once liked the image move to the /liked route and the button on the image chages to dislike. When a movie is disliked, it is subsequently removed from the /liked route.
 
 # Install dependencies for server
 npm install
