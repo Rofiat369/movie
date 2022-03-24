@@ -1,14 +1,26 @@
-// import logo from './logo.svg';
-import './App.css';
-import Movies from './Components/AllMovies/Movies';
+
+// Imports
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
+import "./App.css"
+
+import Movies from "./Components/Movies";
+
+import LikedMovies from "./Components/LikedMovies";
 
 function App() {
   return (
-    <div className="App">
-<header className="App-header">
-      <Movies />
-      </header>
-    </div>
+    // Routes
+    <Router>
+      <Routes>
+        <Route path="/" element={<Movies />} />
+        <Route path="/liked" element={<LikedMovies />} />
+      </Routes>
+    </Router>
   );
 }
 
