@@ -1,12 +1,10 @@
 import React from "react";
 import getLikedMovies from "./getLikedMovies";
-
 import "./Movies.css";
 import Navigation from "./Navigation";
 
 function LikedMovies() {
   const likedMovies = getLikedMovies();
-
   return (
     <div>
       <Navigation />

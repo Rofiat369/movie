@@ -28,7 +28,7 @@ function Movies() {
     setLikedMovies(updatedLikedMovies);
   }
 
-  // dislikeMovie will remove movie poster to likedMovies in localStorage
+  // dislikeMovie will remove movie poster from likedMovies in localStorage
   function dislikeMovie(movie) {
     const updatedLikedMovies = likedMovies.filter((likedMovie) => {
       return likedMovie.id !== movie.id;
@@ -41,8 +41,11 @@ function Movies() {
     <div>
       <Navigation />
       <div className="container">
+        {/* Map through all the items from the api and give me the poster */}
         {movies.map((movie) => {
           const imgApi = `https://image.tmdb.org/t/p/w500`;
+
+          // Check if movie.id as an equal link to any id in the liked movies
           const foundMovieInLikedMovies = likedMovies.find((likedMovie) => {
             return likedMovie.id === movie.id;
           });
@@ -55,6 +58,7 @@ function Movies() {
                 alt="poster"
               />
               <div className="overlay">
+                {/* if movie is alread in liked movies display thumbs down else display thumbs up */}
                 {foundMovieInLikedMovies ? (
                   <BsFillHandThumbsDownFill
                     size={50}
